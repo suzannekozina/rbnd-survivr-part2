@@ -16,12 +16,35 @@ class Jury
       votes[finalist] = 0
     end
 
-    @members.each do |member|
-    vote = finalists.sample
-    votes[votes] += 1
-    puts "#{member} votes for #{vote}."
-  end
+    count_votes(finalists, votes)
+    end
 
-  votes
+    def report_votes(final_votes = cast_votes(finalists))
+      final_votes.each do |k, v|
+        puts "#{k} received #{v} vote"
+      end
+    end
+
+    def announce_winner(final_votes = cast_votes(finalists))
+      max_votes = final_votes.values.max
+      winner = final_votes
+                .select { |_k, v| v == max_votes }
+                .keys
+                .first
+
+      puts "The winner of this game of Survivor is: #{winner.name}"
+      winner
+    end
+
+    private
+
+    def count_votes(finalists, votes)
+      members.each do |member|
+        vote = finalists.sample
+        votes[vote] += 1
+        puts "#{member} voted for #{vote}"
+    end
+
+    votes
   end
 end
