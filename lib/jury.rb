@@ -6,7 +6,7 @@ class Jury
   end
 
   def add_member(member)
-    puts "#{member} has been added to the jury."
+    puts "#{member}".light_blue + " has been added to the jury."
     @members << member
   end
 
@@ -32,7 +32,9 @@ class Jury
                 .keys
                 .first
 
-      puts "The winner of this game of Survivor is: #{winner.name}"
+      print_header("Survivr Final Results")
+      puts "The winner of this game of Survivor is: ".white + "#{winner.name.upcase.pink}"
+      puts "Congratulations ".white + "#{winner.name.upcase.pink}" + "!".white
       winner
     end
 
