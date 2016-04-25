@@ -44,7 +44,7 @@ class Jury
       members.each do |member|
         vote = finalists.sample
         votes[vote] += 1
-        puts "#{member} voted for #{vote}"
+        puts "#{member}".light_blue +" voted for" +  "#{vote}".pink
     end
 
     votes
