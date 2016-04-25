@@ -28,9 +28,7 @@ class Jury
     def announce_winner(final_votes = cast_votes(finalists))
       max_votes = final_votes.values.max
       winner = final_votes
-                .select { |_k, v| v == max_votes }
-                .keys
-                .first
+        .select { |_k, v| v == max_votes }.keys.first
 
       print_header("Survivr Final Results")
       puts "The winner of this game of Survivor is: ".white + "#{winner.name.upcase.pink}"
