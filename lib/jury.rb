@@ -21,7 +21,7 @@ class Jury
 
     def report_votes(final_votes = cast_votes(finalists))
       final_votes.each do |k, v|
-        puts "#{k} received #{v} vote"
+        puts "#{k} received #{v} votes"
       end
     end
 
