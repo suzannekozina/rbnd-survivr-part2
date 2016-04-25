@@ -21,7 +21,7 @@ class Jury
 
     def report_votes(final_votes = cast_votes(finalists))
       final_votes.each do |k, v|
-        puts "#{k}".pink + "received #{v} votes"
+        puts "#{k}".pink + " received #{v} votes"
       end
     end
 
@@ -44,7 +44,7 @@ class Jury
       members.each do |member|
         vote = finalists.sample
         votes[vote] += 1
-        puts "#{member}".light_blue + " voted for" + "#{vote}".pink
+        puts "#{member}".light_blue + " voted for " + "#{vote}".pink
     end
 
     votes
