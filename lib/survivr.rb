@@ -31,7 +31,7 @@ print_header("Welcome to Survivr!")
 def phase_one
   puts "~~~~~PHASE 1~~~~~".yellow
   8.times do
-    @borneo.immunity_challenge.tribal_council()
+    @borneo.immunity_challenge.tribal_council
     puts
   end
 end
@@ -60,6 +60,10 @@ phase_two #3 more eliminations
 @jury = Jury.new
 phase_three #7 elminiations become jury members
 finalists = @merge_tribe.members #set finalists
+puts"Finalists are:".yellow
+puts finalists
+puts "~~~FINAL VOTES~~~".yellow
 vote_results = @jury.cast_votes(finalists) #Jury members report votes
 @jury.report_votes(vote_results) #Jury announces their votes
+puts
 @jury.announce_winner(vote_results) #Jury announces final winner

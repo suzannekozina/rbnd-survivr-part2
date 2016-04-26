@@ -17,25 +17,27 @@ class Game
   end
   #
 
-  def individual_immunity_challenge
-    winner = @tribes.first.members.sample
-    puts "#{winner} has won the individual challenge and is immune "\
-         'from being eliminated.'
-    winner
-  end
-
   def clear_tribes
-    tribes.clear
+    @tribes.clear
   end
   # #
   def merge(new_tribe_name)
-    new_tribe = Tribe.new(name: new_tribe_name, members: merge_tribes_members)
+    new_tribe = Tribe.new(name: new_tribe_name, members: merged_members)
     clear_tribes
-    tribes << new_tribe
+    add_tribe(new_tribe)
     new_tribe
   end
   # #
-  def merge_tribes_members
-    tribes.map(&:members).flatten
+  def merged_members
+    new_members = []
+    @tribes.each { |tribe| new_members << tribe.members }
+    new_members.flatten!
+  end
+
+  def individual_immunity_challenge
+    winner = merged_members.sample
+    puts "#{winner}".light_blue + " has won the individual challenge and is "\
+         'immune from being eliminated.'
+    winner
   end
 end
