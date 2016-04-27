@@ -35,7 +35,7 @@ class Game
   end
 
   def individual_immunity_challenge
-    winner = merged_members.sample
+    winner = @tribes.first.members.sample
     puts "#{winner}".light_blue + " has won the individual challenge and is "\
          'immune from being eliminated.'
     winner
